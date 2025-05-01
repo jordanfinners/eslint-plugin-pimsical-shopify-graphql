@@ -1,4 +1,4 @@
-# eslint-plugin-depend
+# eslint-plugin-pimsical-shopify-graphql
 
 This is an ESLint plugin to help check Shopify GraphQL queries follow best practice. Built by a Shopify Partner.
 
