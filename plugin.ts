@@ -10,7 +10,7 @@ import { rule as requireQueryPageInfoRule } from './rules/require-query-page-inf
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const { name, version } = JSON.parse(
-  readFileSync(path.resolve(__dirname, './package.json'), 'utf8')
+  readFileSync(path.resolve(__dirname, '../package.json'), 'utf8')
 );
 
 export const rules: Record<string, Rule.RuleModule> = {
