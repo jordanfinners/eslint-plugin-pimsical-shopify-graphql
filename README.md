@@ -48,11 +48,12 @@ export default [
     },
     plugins: {
       '@graphql-eslint': graphqlPlugin,
-      shopifyGraphql: shopifyGraphqlPlugin,
+      'pimsical-shopify-graphql': shopifyGraphqlPlugin,
     },
     rules: {
-      ...graphqlPlugin.configs['flat/operations-all'].rules,
-      ...shopifyGraphql.configs['flat/recommended'].rules,
+      ...graphqlPlugin.configs['flat/operations-recommended'].rules,
+      '@graphql-eslint/require-selections': 'off',
+      ...shopifyGraphqlPlugin.configs['flat/recommended'].rules,
     },
   },
 ];
@@ -82,12 +83,13 @@ export default [
     },
     plugins: {
       '@graphql-eslint': graphqlPlugin,
-      shopifyGraphql: shopifyGraphqlPlugin,
+      'pimsical-shopify-graphql': shopifyGraphqlPlugin,
     },
     rules: {
-      ...graphqlPlugin.configs['flat/operations-all'].rules,
-      ...shopifyGraphql.configs['flat/recommended'].rules,
-    }
+      ...graphqlPlugin.configs['flat/operations-recommended'].rules,
+      '@graphql-eslint/require-selections': 'off',
+      ...shopifyGraphqlPlugin.configs['flat/recommended'].rules,
+    },
   },
 ];
 ```
@@ -151,11 +153,12 @@ export default [
     },
     plugins: {
       '@graphql-eslint': graphqlPlugin,
-      shopifyGraphql: shopifyGraphqlPlugin,
+      'pimsical-shopify-graphql': shopifyGraphqlPlugin,
     },
     rules: {
-      ...graphqlPlugin.configs['flat/operations-all'].rules,
-      ...shopifyGraphql.configs['flat/recommended'].rules,
+      ...graphqlPlugin.configs['flat/operations-recommended'].rules,
+      '@graphql-eslint/require-selections': 'off',
+      ...shopifyGraphqlPlugin.configs['flat/recommended'].rules,
     },
   },
 ];
