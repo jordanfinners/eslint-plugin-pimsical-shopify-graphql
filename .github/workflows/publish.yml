@@ -21,11 +21,11 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      - name: Build
-        run: npm run build
-
       - name: Test
         run: npm test
+
+      - name: Build
+        run: npm run build
 
   publish-npm:
     needs: build
@@ -42,6 +42,9 @@ jobs:
           cache: 'npm'
 
       - run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - run: npm version ${TAG_NAME} --git-tag-version=false
         env:
