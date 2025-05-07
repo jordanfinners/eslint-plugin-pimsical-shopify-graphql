@@ -9,7 +9,7 @@ It is designed to work alongside [`@graphql-eslint/eslint-plugin`](https://the-g
 - [Installation](#Installation)
 - [Usage](#Usage)
 - [Usage with queries in code files](#queries-in-code)
-- [Usage in graphql files](#queries-in-.graphql-files)
+- [Usage in graphql files](#queries-in-graphql-files)
 - [Combining with GraphQL Schema](#shopify-graphql-schema)
 - [Rules](#Rules)
 
@@ -25,9 +25,12 @@ You need to be using [`eslint` flat config files](https://eslint.org/docs/latest
 
 There are two ways to use this plugin, depending on where your GraphQL queries are located.
 
+
 ### Queries in code
 
-If you have GraphQL queries inside TypeScript or JavaScript files, you can use the `graphql-eslint` processor to allow us to lint them. Here is an example for a TypeScript project like so (or change the file extensions to match your project):
+If you have GraphQL queries inside TypeScript or JavaScript files, you can use the `graphql-eslint` processor to allow us to lint them.
+
+Here is an example for a TypeScript project like so (or change the file extensions to match your project):
 
 ```ts
 import graphqlPlugin from '@graphql-eslint/eslint-plugin'
@@ -55,9 +58,13 @@ export default [
 ];
 ```
 
+
 The `graphql-eslint` processor will pick up any GraphQL queries inside your TypeScript or JavaScript files, and convert them to `.graphql` files _in memory only_ allowing us to lint them.
+
 It will pick up any queries inside `gql` or `graphql` tagged template literals, or beginning with the comment `/* GraphQL */` before the query by default.
+
 To make the tools work more seamlessly and improve linting we recommend integrating with [Shopify GraphQL Codegen below](#shopify-graphql-schema).
+
 
 ### Queries in `.graphql` files
 
@@ -85,12 +92,16 @@ export default [
 ];
 ```
 
+
 ### Shopify GraphQL Schema
 
 The linters work **best** combined with knowledge about Shopify GraphQL Schema, there are two ways to configure this:
 
 If you are already using [Shopify GraphQL Codegen](https://www.npmjs.com/package/@shopify/api-codegen-preset), this does a lot of the work for us and is our recommended approach.
-In your `.graphqlrc.ts` or equivalent JS file, ensure that `pluckConfig` is exposed in the default `extensions` object. This will allow the linters to pick up the GraphQL code from your codebase using the same prefix as the codegen tools, it also uses the schemas from here as well.
+
+In your `.graphqlrc.ts` or equivalent JS file, ensure that `pluckConfig` is exposed in the default `extensions` object.
+
+This will allow the linters to pick up the GraphQL code from your codebase using the same prefix as the codegen tools, it also uses the schemas from here as well.
 
 ```ts
 import { shopifyApiProject, ApiType } from '@shopify/api-codegen-preset';
@@ -149,6 +160,7 @@ export default [
   },
 ];
 ```
+
 
 ## Rules
 
