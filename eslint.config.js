@@ -1,13 +1,13 @@
 import globals from "globals";
 import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
-import pluginRecommended from 'eslint-plugin-eslint-plugin/configs/recommended';
+import eslintPlugin  from 'eslint-plugin-eslint-plugin';
 
 export default [
   { languageOptions: { globals: globals.node } },
   eslint.configs.recommended,
   ...tseslint.configs.strict,
-  pluginRecommended,
+  eslintPlugin .configs.recommended,
   {
     rules: {
       'max-len': ['error', {

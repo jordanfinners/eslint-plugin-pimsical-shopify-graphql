@@ -1,20 +1,20 @@
-import { RuleTester } from 'eslint';
-import graphqlPlugin from '@graphql-eslint/eslint-plugin';
-import { rule } from './require-mutation-user-errors.js';
+import { RuleTester } from "eslint";
+import graphqlPlugin from "@graphql-eslint/eslint-plugin";
+import { rule } from "./require-mutation-user-errors.js";
 
 const ruleTester = new RuleTester({
-  languageOptions: {
-    parser: graphqlPlugin.parser,
-    parserOptions: {
-      sourceType: 'module',
-      ecmaVersion: 2022
-    }
-  }
+	languageOptions: {
+		parser: graphqlPlugin.parser,
+		parserOptions: {
+			sourceType: "module",
+			ecmaVersion: 2022,
+		},
+	},
 });
 
-ruleTester.run('require-mutation-user-errors', rule, {
-  valid: [
-    `mutation inventoryAdjustQuantities($input: InventoryAdjustQuantitiesInput!) {
+ruleTester.run("require-mutation-user-errors", rule, {
+	valid: [
+		`mutation inventoryAdjustQuantities($input: InventoryAdjustQuantitiesInput!) {
       inventoryAdjustQuantities(input: $input) {
         userErrors {
           field
@@ -26,10 +26,10 @@ ruleTester.run('require-mutation-user-errors', rule, {
         }
       }
     }`,
-  ],
-  invalid: [
-    {
-      code: `mutation inventoryAdjustQuantities($input: InventoryAdjustQuantitiesInput!) {
+	],
+	invalid: [
+		{
+			code: `mutation inventoryAdjustQuantities($input: InventoryAdjustQuantitiesInput!) {
         inventoryAdjustQuantities(input: $input) {
           inventoryAdjustmentGroup {
             createdAt
@@ -37,9 +37,11 @@ ruleTester.run('require-mutation-user-errors', rule, {
           }
         }
       }`,
-      errors: [{
-        messageId: 'requiredMutationUserErrors',
-      }],
-    }
-  ],
+			errors: [
+				{
+					messageId: "requiredMutationUserErrors",
+				},
+			],
+		},
+	],
 });
